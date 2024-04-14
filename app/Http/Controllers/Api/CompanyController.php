@@ -5,18 +5,23 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CompanyRequest;
 use App\Http\Resources\CompanyResource;
+use App\Interfaces\CompanyRepositoryInterface;
 use App\Models\Company;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
 
 class CompanyController extends Controller
 {
+    public function __construct(protected CompanyRepositoryInterface $companyRepository)
+    {
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index(): AnonymousResourceCollection
     {
-       return CompanyResource::collection(Company::all());
+       return $this->companyRepository->index();
     }
 
     /**
@@ -24,8 +29,7 @@ class CompanyController extends Controller
      */
     public function store(CompanyRequest $request): CompanyResource
     {
-        $company = Company::create($request->validated());
-        return new CompanyResource($company);
+        return $this->companyRepository->store($request);
     }
 
     /**
@@ -33,16 +37,15 @@ class CompanyController extends Controller
      */
     public function show(Company $company): CompanyResource
     {
-        return new CompanyResource($company);
+        return $this->companyRepository->show($company);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(CompanyRequest $request, string $id): CompanyResource
+    public function update(CompanyRequest $request): CompanyResource
     {
-        $company = Company::update($request->validated());
-        return new CompanyResource($company);
+        return $this->companyRepository->update($request);
     }
 
     /**
@@ -50,7 +53,6 @@ class CompanyController extends Controller
      */
     public function destroy(Company $company): Response
     {
-        $company->delete();
-        return response()->noContent();
+        return $this->companyRepository->delete($company);
     }
 }
