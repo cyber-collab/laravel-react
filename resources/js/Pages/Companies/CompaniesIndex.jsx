@@ -17,13 +17,15 @@ const CompaniesIndex = () => {
 
     return (
         <div className="overflow-hidden overflow-x-auto p-6 bg-white border-gray-200">
-            <div className="min-w-full align-middle">
+            <div className="flex place-content-end mb-4">
                 <CreateButton
                     link={"/companies/create"}
-                    className={"px-4 py-2 rounded-md text-white bg-indigo-600 hover:bg-indigo-700"}
+                    className={"bg-gray-800 hover:bg-gray-700 rounded-md text-white px-4 py-2 font-semibold ease-in-out duration-150"}
                 >
                     Create
                 </CreateButton>
+            </div>
+            <div className="min-w-full align-middle">
                 <table className="min-w-full divide-y divide-gray-200 border">
                     <thead>
                     {/* Table headers */}

@@ -10,15 +10,12 @@ const CreateButton = ({className}) => {
         navigate(path);
     }
     return (
-        <div>
-            <button
-                onClick={routeChange}
-                type="button"
-                className={className}
-            >
-                Create
-            </button>
-        </div>
+        <button
+            onClick={routeChange}
+            type="button"
+            className={className}>
+            Create
+        </button>
     );
 };
 
