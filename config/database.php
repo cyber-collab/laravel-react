@@ -39,6 +39,14 @@ return [
             'foreign_key_constraints' => env('DB_FOREIGN_KEYS', true),
         ],
 
+        'mysql_testing' => [
+            'driver' => 'mysql',
+            'database' => "testing",
+            'host' => env('DB_HOST', 'mysql'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+        ],
+
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),

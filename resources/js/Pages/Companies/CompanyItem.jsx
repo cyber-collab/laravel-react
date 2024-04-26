@@ -1,5 +1,4 @@
 import React from "react";
-import axios from "axios";
 import DeleteButton from "../../UI/DeleteButton.jsx";
 
 const CompanyItem = ({company, fetchCompanies}) => {
@@ -15,7 +14,7 @@ const CompanyItem = ({company, fetchCompanies}) => {
             <td className="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
                 {company.address}
             </td>
-            <td className="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
+            <td className="bg-blue-500 py-2 px-4 rounded ">
                 {company.website}
             </td>
             <td className="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">

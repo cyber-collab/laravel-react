@@ -16,4 +16,19 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    public function test_making_an_api_request(): void
+    {
+        $response = $this->postJson(
+            '/api/companies',
+            [
+                'name' => 'Sally',
+                'email' => 'test@test.com',
+                'website' => 'https://www.example.com/',
+                'address' => 'test'
+            ]
+        );
+
+        $response->assertStatus(201);
+    }
 }
