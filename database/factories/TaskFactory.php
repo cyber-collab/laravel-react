@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Task;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Task>
+ * @extends Factory<Task>
  */
 class TaskFactory extends Factory
 {
@@ -17,7 +18,10 @@ class TaskFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'description' => $this->faker->sentence(),
+            'completed' => $this->faker->boolean(),
+            'title' => $this->faker->title(),
+            'user_id' => $this->faker->numberBetween(1, 10),
         ];
     }
 }

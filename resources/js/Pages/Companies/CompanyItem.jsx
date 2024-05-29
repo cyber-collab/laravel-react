@@ -1,5 +1,6 @@
 import React from "react";
 import DeleteButton from "../../UI/DeleteButton.jsx";
+import EditButton from "../../UI/EditButton.jsx";
 
 const CompanyItem = ({company, fetchCompanies}) => {
 
@@ -19,6 +20,12 @@ const CompanyItem = ({company, fetchCompanies}) => {
             </td>
             <td className="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
                 <DeleteButton
+                    companyId={company.id}
+                    fetchCompanies={fetchCompanies}
+                />
+            </td>
+            <td className="px-6 py-4 text-sm leading-5 text-gray-900 whitespace-no-wrap">
+                <EditButton
                     companyId={company.id}
                     fetchCompanies={fetchCompanies}
                 />
